@@ -1,145 +1,145 @@
-# HappyCursor - 全局光标控制器
+# HappyCursor - Global Cursor Controller
 
-一个专业的 macOS 应用，通过触摸板手势和快捷键组合来精确控制文本光标的移动，提供流畅的触觉反馈体验。
+A professional macOS application that provides precise text cursor movement control through trackpad gestures and keyboard shortcuts, delivering a smooth haptic feedback experience.
 
-## ✨ 主要功能
+## ✨ Key Features
 
-### 🎯 全局光标控制
-- **智能光标移动**: 按住快捷键并滑动触摸板，精确控制文本插入点
-- **跨应用支持**: 在任何支持文本编辑的应用中工作（VSCode、Safari、Notes 等）
-- **方向键模拟**: 通过模拟方向键事件实现光标移动，兼容性极佳
+### 🎯 Global Cursor Control
+- **Smart Cursor Movement**: Hold keyboard shortcuts and slide the trackpad to precisely control text insertion point
+- **Cross-Application Support**: Works in any application that supports text editing (VSCode, Safari, Notes, etc.)
+- **Arrow Key Simulation**: Achieves cursor movement by simulating arrow key events with excellent compatibility
 
-### 🎮 触觉反馈
-- **实时反馈**: 每次光标移动都会触发触觉反馈
-- **Force Touch 支持**: 专为支持触觉反馈的 MacBook 设计
-- **多种反馈类型**: 支持通用、对齐、等级变化等不同类型的触觉反馈
+### 🎮 Haptic Feedback
+- **Real-time Feedback**: Triggers haptic feedback with every cursor movement
+- **Force Touch Support**: Designed specifically for MacBooks with haptic feedback support
+- **Multiple Feedback Types**: Supports different types of haptic feedback including generic, alignment, and level change
 
-### ⚙️ 灵活配置
-- **可调节灵敏度**: 独立设置水平和垂直移动的灵敏度
-- **快捷键选择**: 支持 Shift、Command、Option 三种修饰键
-- **方向控制**: 可单独启用或禁用水平/垂直移动
-- **自动保存**: 所有设置自动保存，下次启动时保持您的配置
+### ⚙️ Flexible Configuration
+- **Adjustable Sensitivity**: Independently set horizontal and vertical movement sensitivity
+- **Shortcut Selection**: Supports Shift, Command, and Option modifier keys
+- **Direction Control**: Enable or disable horizontal/vertical movement individually
+- **Auto-Save**: All settings are automatically saved and maintained on next launch
 
-### 🎨 专业界面
-- **现代化设计**: 遵循 Apple 设计指南的简洁界面
-- **实时状态显示**: 直观显示快捷键状态和配置信息
-- **响应式布局**: 适配不同窗口大小
+### 🎨 Professional Interface
+- **Modern Design**: Clean interface following Apple's design guidelines
+- **Real-time Status Display**: Intuitive display of shortcut status and configuration information
+- **Responsive Layout**: Adapts to different window sizes
 
-## 🚀 系统要求
+## 🚀 System Requirements
 
-- **操作系统**: macOS 10.15 (Catalina) 或更高版本
-- **硬件要求**: 支持触觉反馈的 Mac 设备（如 MacBook Pro with Touch Bar）
-- **权限要求**: 需要在系统设置中授予辅助功能权限
+- **Operating System**: macOS 10.15 (Catalina) or higher
+- **Hardware Requirements**: Mac device with haptic feedback support (such as MacBook Pro with Touch Bar)
+- **Permission Requirements**: Requires accessibility permissions in System Settings
 
-## 📦 安装与使用
+## 📦 Installation and Usage
 
-### 1. 安装应用
-1. 下载并安装 HappyCursor
-2. 首次启动时，系统会提示授予辅助功能权限
+### 1. Install Application
+1. Download and install HappyCursor
+2. On first launch, the system will prompt to grant accessibility permissions
 
-### 2. 配置权限
-1. 打开系统设置 > 隐私与安全性 > 辅助功能
-2. 找到 HappyCursor 并启用权限
-3. 重启应用
+### 2. Configure Permissions
+1. Open System Settings > Privacy & Security > Accessibility
+2. Find HappyCursor and enable permissions
+3. Restart the application
 
-### 3. 开始使用
-1. 在应用界面中选择触发快捷键（默认：Command）
-2. 调整水平和垂直移动的灵敏度
-3. 在任何文本编辑器中按住快捷键并滑动触摸板
-4. 享受精确的光标控制和触觉反馈
-5. 所有设置会自动保存，下次启动时保持您的配置
+### 3. Start Using
+1. Select trigger shortcut in the application interface (default: Command)
+2. Adjust horizontal and vertical movement sensitivity
+3. Hold the shortcut key and slide the trackpad in any text editor
+4. Enjoy precise cursor control and haptic feedback
+5. All settings are automatically saved and maintained on next launch
 
-## 🔧 技术架构
+## 🔧 Technical Architecture
 
-### 核心技术
-- **SwiftUI**: 构建现代化用户界面
-- **AppKit**: 提供 macOS 特定的系统功能
-- **Core Graphics**: 全局事件监听和键盘事件模拟
-- **Haptic Feedback**: 触觉反馈系统集成
+### Core Technologies
+- **SwiftUI**: Build modern user interfaces
+- **AppKit**: Provide macOS-specific system functionality
+- **Core Graphics**: Global event monitoring and keyboard event simulation
+- **Haptic Feedback**: Haptic feedback system integration
 
-### 主要组件
+### Main Components
 ```
 HappyCursor/
-├── HappyCursorApp.swift      # 应用入口和配置
-├── ContentView.swift         # 主界面视图
-├── AppDelegate.swift         # 全局事件处理和光标控制
-├── HapticManager.swift       # 触觉反馈管理
-└── Assets.xcassets/          # 应用资源
+├── HappyCursorApp.swift      # Application entry and configuration
+├── ContentView.swift         # Main interface view
+├── AppDelegate.swift         # Global event handling and cursor control
+├── HapticManager.swift       # Haptic feedback management
+└── Assets.xcassets/          # Application resources
 ```
 
-### 核心功能实现
+### Core Functionality Implementation
 
-#### 全局事件监听
-- 使用 `CGEventTap` 监听全局鼠标移动和键盘事件
-- 实时检测修饰键状态变化
-- 精确控制事件拦截和传递
+#### Global Event Monitoring
+- Use `CGEventTap` to monitor global mouse movement and keyboard events
+- Real-time detection of modifier key state changes
+- Precise control of event interception and forwarding
 
-#### 光标移动控制
-- 累计触摸板移动距离，达到阈值时触发移动
-- 模拟方向键事件，确保跨应用兼容性
-- 智能处理水平和垂直方向的独立控制
+#### Cursor Movement Control
+- Accumulate trackpad movement distance and trigger movement when threshold is reached
+- Simulate arrow key events to ensure cross-application compatibility
+- Intelligent handling of independent horizontal and vertical direction control
 
-#### 触觉反馈系统
-- 集成 `NSHapticFeedbackManager` 提供多种反馈类型
-- 支持连续反馈和反馈序列
-- 自动检测设备兼容性
+#### Haptic Feedback System
+- Integrate `NSHapticFeedbackManager` to provide multiple feedback types
+- Support continuous feedback and feedback sequences
+- Automatic device compatibility detection
 
-## 🎯 使用场景
+## 🎯 Use Cases
 
-### 编程开发
-- 在 VSCode、Xcode 等 IDE 中快速定位光标
-- 精确的代码编辑和导航
+### Programming Development
+- Quickly position cursor in IDEs like VSCode, Xcode
+- Precise code editing and navigation
 
-### 文档编辑
-- 在 Pages、Word 等文档编辑器中快速移动光标
-- 提高文档编辑效率
+### Document Editing
+- Quickly move cursor in document editors like Pages, Word
+- Improve document editing efficiency
 
-### 网页浏览
-- 在 Safari、Chrome 等浏览器中快速定位文本
-- 提升网页内容编辑体验
+### Web Browsing
+- Quickly position text in browsers like Safari, Chrome
+- Enhance web content editing experience
 
-## 🔒 隐私与安全
+## 🔒 Privacy and Security
 
-- **本地处理**: 所有事件处理都在本地进行，不收集任何用户数据
-- **权限透明**: 明确说明所需的系统权限和用途
-- **无网络访问**: 应用不进行任何网络通信
+- **Local Processing**: All event processing is done locally, no user data collection
+- **Transparent Permissions**: Clear explanation of required system permissions and purposes
+- **No Network Access**: Application does not perform any network communication
 
-## 🛠️ 开发说明
+## 🛠️ Development Notes
 
-### 项目结构
+### Project Structure
 ```
 HappyCursor/
-├── HappyCursor/              # 主应用代码
-│   ├── HappyCursorApp.swift  # 应用入口
-│   ├── ContentView.swift     # 主界面
-│   ├── AppDelegate.swift     # 事件处理
-│   ├── HapticManager.swift   # 触觉反馈
-│   └── Assets.xcassets/      # 资源文件
-├── HappyCursorTests/         # 单元测试
-├── HappyCursorUITests/       # UI 测试
-└── README.md                 # 项目文档
+├── HappyCursor/              # Main application code
+│   ├── HappyCursorApp.swift  # Application entry
+│   ├── ContentView.swift     # Main interface
+│   ├── AppDelegate.swift     # Event handling
+│   ├── HapticManager.swift   # Haptic feedback
+│   └── Assets.xcassets/      # Resource files
+├── HappyCursorTests/         # Unit tests
+├── HappyCursorUITests/       # UI tests
+└── README.md                 # Project documentation
 ```
 
-### 开发环境
-- **Xcode**: 15.0 或更高版本
-- **Swift**: 5.9 或更高版本
-- **macOS SDK**: 14.0 或更高版本
+### Development Environment
+- **Xcode**: 15.0 or higher
+- **Swift**: 5.9 or higher
+- **macOS SDK**: 14.0 or higher
 
-### 构建步骤
-1. 使用 Xcode 打开 `HappyCursor.xcodeproj`
-2. 选择目标设备（需要支持触觉反馈的 Mac）
-3. 构建并运行项目
+### Build Steps
+1. Open `HappyCursor.xcodeproj` with Xcode
+2. Select target device (requires Mac with haptic feedback support)
+3. Build and run the project
 
-## 📄 许可证
+## 📄 License
 
 Copyright © 2025 HappyCursor. All rights reserved.
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-- Apple 提供的优秀开发工具和 API
-- 所有测试用户提供的宝贵反馈
+- Excellent development tools and APIs provided by Apple
+- Valuable feedback from all test users
 
 ---
 
-**HappyCursor** - 让光标移动更智能，让编辑体验更流畅 🎯 
+**HappyCursor** - Making cursor movement smarter, making editing experience smoother 🎯
 
