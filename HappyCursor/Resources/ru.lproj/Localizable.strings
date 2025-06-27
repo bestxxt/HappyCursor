@@ -1,0 +1,72 @@
+// App Title
+"HappyCursor" = "HappyCursor";
+"Global Cursor Controller" = "Глобальный контроллер курсора";
+
+// Key Status
+"Key Status" = "Состояние клавиш";
+"Shift" = "⇧ Shift";
+"Command" = "⌘ Command";
+"Option" = "⌥ Option";
+
+// Trigger Hotkey
+"Trigger Hotkey" = "Клавиша активации";
+
+// Movement Sensitivity
+"Movement Sensitivity" = "Чувствительность движения";
+"Horizontal Movement" = "Горизонтальное движение";
+"Vertical Movement" = "Вертикальное движение";
+"Enable Horizontal Movement" = "Включить горизонтальное движение";
+"Enable Vertical Movement" = "Включить вертикальное движение";
+
+// Enhanced Movement Options
+"Word Jump" = "Прыжок по словам";
+"Line Start/End" = "Начало/Конец строки";
+"Select" = "Выбрать";
+"Column Start/End" = "Начало/Конец столбца";
+
+// App Specific Control
+"App Specific Control" = "Контроль конкретного приложения";
+"Enable cursor control only in selected apps" = "Включить контроль курсора только в выбранных приложениях";
+"App Whitelist (check to enable)" = "Белый список приложений (отметьте для включения)";
+
+// General Settings
+"General Settings" = "Общие настройки";
+"Enable Cursor Control" = "Включить контроль курсора";
+"Enable Haptic Feedback" = "Включить тактильную обратную связь";
+
+// Test Area
+"Test Area" = "Тестовая область";
+"Welcome to HappyCursor Global Cursor Controller!" = "Добро пожаловать в глобальный контроллер курсора HappyCursor!";
+"This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text." = "Это тестовая область, где вы можете испытать функциональность движения курсора. Удерживайте установленную горячую клавишу (по умолчанию клавиша Command) и проведите по трекпаду, вы увидите, как курсор движется в тексте.";
+
+// Instructions
+"Instructions" = "Инструкции";
+"Hold the set hotkey" = "Удерживайте установленную горячую клавишу";
+"Slide trackpad to move cursor" = "Проведите по трекпаду для перемещения курсора";
+"Haptic feedback on each movement" = "Тактильная обратная связь при каждом движении";
+"Requires authorization in System Settings > Accessibility" = "Требуется авторизация в Системных настройках > Доступность";
+
+// Buttons
+"Reset to Default" = "Сбросить по умолчанию";
+"Upgrade to Pro" = "Обновить до Pro";
+
+// Alerts
+"Error" = "Ошибка";
+"OK" = "OK";
+
+// Help text
+"Reset to default configuration" = "Сбросить конфигурацию по умолчанию";
+
+"Hotkey" = "Горячая клавиша";
+"Disable Cursor Control" = "Отключить контроль курсора";
+"Disable Haptic Feedback" = "Отключить тактильную обратную связь";
+"Settings" = "Настройки";
+"About HappyCursor" = "О HappyCursor";
+"Quit" = "Выйти";
+"AboutText" = "Глобальный контроллер курсора\nВерсия 1.2.0\n\nСделайте ваш опыт редактирования текста более плавным и эффективным!";
+
+// Permission Prompt
+"Accessibility permission required" = "Требуется разрешение на доступность";
+"To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings." = "Чтобы позволить HappyCursor глобально управлять курсором,\nпожалуйста, предоставьте разрешение на доступность в системных настройках.";
+"Open System Settings" = "Открыть системные настройки";
+"After authorization, you may need to restart HappyCursor for all features to take effect." = "После авторизации вам может потребоваться перезапустить HappyCursor, чтобы все функции вступили в силу."; 

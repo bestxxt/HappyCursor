@@ -1,0 +1,72 @@
+// App Title
+"HappyCursor" = "HappyCursor";
+"Global Cursor Controller" = "Globaler Cursor-Controller";
+
+// Key Status
+"Key Status" = "Tastenstatus";
+"Shift" = "⇧ Shift";
+"Command" = "⌘ Command";
+"Option" = "⌥ Option";
+
+// Trigger Hotkey
+"Trigger Hotkey" = "Auslöser-Hotkey";
+
+// Movement Sensitivity
+"Movement Sensitivity" = "Bewegungsempfindlichkeit";
+"Horizontal Movement" = "Horizontale Bewegung";
+"Vertical Movement" = "Vertikale Bewegung";
+"Enable Horizontal Movement" = "Horizontale Bewegung aktivieren";
+"Enable Vertical Movement" = "Vertikale Bewegung aktivieren";
+
+// Enhanced Movement Options
+"Word Jump" = "Wortsprung";
+"Line Start/End" = "Zeilenanfang/-ende";
+"Select" = "Auswählen";
+"Column Start/End" = "Spaltenanfang/-ende";
+
+// App Specific Control
+"App Specific Control" = "App-spezifische Steuerung";
+"Enable cursor control only in selected apps" = "Cursor-Steuerung nur in ausgewählten Apps aktivieren";
+"App Whitelist (check to enable)" = "App-Whitelist (aktivieren durch Ankreuzen)";
+
+// General Settings
+"General Settings" = "Allgemeine Einstellungen";
+"Enable Cursor Control" = "Cursor-Steuerung aktivieren";
+"Enable Haptic Feedback" = "Haptisches Feedback aktivieren";
+
+// Test Area
+"Test Area" = "Testbereich";
+"Welcome to HappyCursor Global Cursor Controller!" = "Willkommen beim HappyCursor Global Cursor Controller!";
+"This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text." = "Dies ist ein Testbereich, in dem Sie die Cursor-Bewegungsfunktionalität erleben können. Halten Sie den eingestellten Hotkey (standardmäßig Command-Taste) gedrückt und gleiten Sie über das Trackpad, Sie werden sehen, wie sich der Cursor im Text bewegt.";
+
+// Instructions
+"Instructions" = "Anweisungen";
+"Hold the set hotkey" = "Halten Sie den eingestellten Hotkey";
+"Slide trackpad to move cursor" = "Gleiten Sie über das Trackpad, um den Cursor zu bewegen";
+"Haptic feedback on each movement" = "Haptisches Feedback bei jeder Bewegung";
+"Requires authorization in System Settings > Accessibility" = "Erfordert Autorisierung in Systemeinstellungen > Barrierefreiheit";
+
+// Buttons
+"Reset to Default" = "Auf Standard zurücksetzen";
+"Upgrade to Pro" = "Auf Pro upgraden";
+
+// Alerts
+"Error" = "Fehler";
+"OK" = "OK";
+
+// Help text
+"Reset to default configuration" = "Standardkonfiguration wiederherstellen";
+
+"Hotkey" = "Hotkey";
+"Disable Cursor Control" = "Cursor-Steuerung deaktivieren";
+"Disable Haptic Feedback" = "Haptisches Feedback deaktivieren";
+"Settings" = "Einstellungen";
+"About HappyCursor" = "Über HappyCursor";
+"Quit" = "Beenden";
+"AboutText" = "Globaler Cursor-Controller\nVersion 1.2.0\n\nMachen Sie Ihre Texterfahrung flüssiger und effizienter!";
+
+// Permission Prompt
+"Accessibility permission required" = "Barrierefreiheit-Berechtigung erforderlich";
+"To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings." = "Damit HappyCursor den Cursor global steuern kann,\ngewähren Sie bitte die Barrierefreiheit-Berechtigung in den Systemeinstellungen.";
+"Open System Settings" = "Systemeinstellungen öffnen";
+"After authorization, you may need to restart HappyCursor for all features to take effect." = "Nach der Autorisierung müssen Sie HappyCursor möglicherweise neu starten, damit alle Funktionen wirksam werden."; 

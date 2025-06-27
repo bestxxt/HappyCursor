@@ -1,0 +1,72 @@
+// App Title
+"HappyCursor" = "HappyCursor";
+"Global Cursor Controller" = "グローバルカーソルコントローラー";
+
+// Key Status
+"Key Status" = "キー状態";
+"Shift" = "⇧ Shift";
+"Command" = "⌘ Command";
+"Option" = "⌥ Option";
+
+// Trigger Hotkey
+"Trigger Hotkey" = "トリガーホットキー";
+
+// Movement Sensitivity
+"Movement Sensitivity" = "移動感度";
+"Horizontal Movement" = "水平移動";
+"Vertical Movement" = "垂直移動";
+"Enable Horizontal Movement" = "水平移動を有効にする";
+"Enable Vertical Movement" = "垂直移動を有効にする";
+
+// Enhanced Movement Options
+"Word Jump" = "単語ジャンプ";
+"Line Start/End" = "行頭/行末";
+"Select" = "選択";
+"Column Start/End" = "列頭/列末";
+
+// App Specific Control
+"App Specific Control" = "アプリ固有制御";
+"Enable cursor control only in selected apps" = "選択したアプリでのみカーソル制御を有効にする";
+"App Whitelist (check to enable)" = "アプリホワイトリスト（チェックして有効化）";
+
+// General Settings
+"General Settings" = "一般設定";
+"Enable Cursor Control" = "カーソル制御を有効にする";
+"Enable Haptic Feedback" = "触覚フィードバックを有効にする";
+
+// Test Area
+"Test Area" = "テストエリア";
+"Welcome to HappyCursor Global Cursor Controller!" = "HappyCursor グローバルカーソルコントローラーへようこそ！";
+"This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text." = "これはカーソル移動機能を体験できるテストエリアです。設定されたホットキー（デフォルトはCommandキー）を押しながらトラックパッドをスライドすると、テキスト内でカーソルが移動するのを確認できます。";
+
+// Instructions
+"Instructions" = "使用説明";
+"Hold the set hotkey" = "設定されたホットキーを押す";
+"Slide trackpad to move cursor" = "トラックパッドをスライドしてカーソルを移動";
+"Haptic feedback on each movement" = "各移動で触覚フィードバック";
+"Requires authorization in System Settings > Accessibility" = "システム設定 > アクセシビリティでの認証が必要";
+
+// Buttons
+"Reset to Default" = "デフォルトにリセット";
+"Upgrade to Pro" = "Proにアップグレード";
+
+// Alerts
+"Error" = "エラー";
+"OK" = "OK";
+
+// Help text
+"Reset to default configuration" = "デフォルト設定にリセット";
+
+"Hotkey" = "ホットキー";
+"Disable Cursor Control" = "カーソル制御を無効にする";
+"Disable Haptic Feedback" = "触覚フィードバックを無効にする";
+"Settings" = "設定";
+"About HappyCursor" = "HappyCursorについて";
+"Quit" = "終了";
+"AboutText" = "グローバルカーソルコントローラー\nバージョン 1.2.0\n\nテキスト編集体験をよりスムーズで効率的に！";
+
+// Permission Prompt
+"Accessibility permission required" = "アクセシビリティ権限が必要です";
+"To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings." = "HappyCursorがグローバルにカーソルを制御できるように、\nシステム設定でアクセシビリティ権限を付与してください。";
+"Open System Settings" = "システム設定を開く";
+"After authorization, you may need to restart HappyCursor for all features to take effect." = "認証後、すべての機能を有効にするためにHappyCursorを再起動する必要がある場合があります。"; 

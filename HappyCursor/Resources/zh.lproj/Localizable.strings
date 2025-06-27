@@ -1,0 +1,72 @@
+// App Title
+"HappyCursor" = "HappyCursor";
+"Global Cursor Controller" = "全局光标控制器";
+
+// Key Status
+"Key Status" = "快捷键状态";
+"Shift" = "⇧ Shift";
+"Command" = "⌘ Command";
+"Option" = "⌥ Option";
+
+// Trigger Hotkey
+"Trigger Hotkey" = "触发快捷键";
+
+// Movement Sensitivity
+"Movement Sensitivity" = "移动灵敏度";
+"Horizontal Movement" = "水平移动";
+"Vertical Movement" = "垂直移动";
+"Enable Horizontal Movement" = "启用水平移动";
+"Enable Vertical Movement" = "启用垂直移动";
+
+// Enhanced Movement Options
+"Word Jump" = "按词移动";
+"Line Start/End" = "行首/尾";
+"Select" = "选中";
+"Column Start/End" = "列首/尾";
+
+// App Specific Control
+"App Specific Control" = "应用特定控制";
+"Enable cursor control only in selected apps" = "只在选中的应用中启用光标控制";
+"App Whitelist (check to enable)" = "应用白名单（勾选后生效）";
+
+// General Settings
+"General Settings" = "通用设置";
+"Enable Cursor Control" = "启用光标控制";
+"Enable Haptic Feedback" = "启用触觉反馈";
+
+// Test Area
+"Test Area" = "测试区域";
+"Welcome to HappyCursor Global Cursor Controller!" = "欢迎使用 HappyCursor 全局光标控制器！";
+"This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text." = "这是一个测试区域，您可以在这里体验光标移动功能。按住设定的快捷键（默认是 Command 键）并滑动触摸板，您会看到光标在文字中移动。";
+
+// Instructions
+"Instructions" = "使用说明";
+"Hold the set hotkey" = "按住设定的快捷键";
+"Slide trackpad to move cursor" = "滑动触摸板移动光标";
+"Haptic feedback on each movement" = "每次移动会触发触觉反馈";
+"Requires authorization in System Settings > Accessibility" = "需要在系统设置 > 辅助功能中授权";
+
+// Buttons
+"Reset to Default" = "重置为默认";
+"Upgrade to Pro" = "升级到 Pro";
+
+// Alerts
+"Error" = "错误";
+"OK" = "确定";
+
+// Help text
+"Reset to default configuration" = "重置为默认配置";
+
+"Hotkey" = "快捷键";
+"Disable Cursor Control" = "禁用光标控制";
+"Disable Haptic Feedback" = "禁用触觉反馈";
+"Settings" = "设置";
+"About HappyCursor" = "关于 HappyCursor";
+"Quit" = "退出";
+"AboutText" = "全局光标控制器\n版本 1.2.0\n\n让您的文本编辑体验更加流畅和高效！";
+
+// Permission Prompt
+"Accessibility permission required" = "需要辅助功能权限";
+"To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings." = "为了让 HappyCursor 能够全局控制光标，\n请在系统设置中授予辅助功能权限。";
+"Open System Settings" = "打开系统设置";
+"After authorization, you may need to restart HappyCursor for all features to take effect." = "授权后，您可能需要重启 HappyCursor 以使所有功能生效。"; 

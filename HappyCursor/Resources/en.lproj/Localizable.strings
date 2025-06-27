@@ -1,0 +1,72 @@
+// App Title
+"HappyCursor" = "HappyCursor";
+"Global Cursor Controller" = "Global Cursor Controller";
+
+// Key Status
+"Key Status" = "Key Status";
+"Shift" = "Shift";
+"Command" = "Command";
+"Option" = "Option";
+
+// Trigger Hotkey
+"Trigger Hotkey" = "Trigger Hotkey";
+
+// Movement Sensitivity
+"Movement Sensitivity" = "Movement Sensitivity";
+"Horizontal Movement" = "Horizontal Movement";
+"Vertical Movement" = "Vertical Movement";
+"Enable Horizontal Movement" = "Enable Horizontal Movement";
+"Enable Vertical Movement" = "Enable Vertical Movement";
+
+// Enhanced Movement Options
+"Word Jump" = "Word Jump";
+"Line Start/End" = "Line Start/End";
+"Select" = "Select";
+"Column Start/End" = "Column Start/End";
+
+// App Specific Control
+"App Specific Control" = "App Specific Control";
+"Enable cursor control only in selected apps" = "Enable cursor control only in selected apps";
+"App Whitelist (check to enable)" = "App Whitelist (check to enable)";
+
+// General Settings
+"General Settings" = "General Settings";
+"Enable Cursor Control" = "Enable Cursor Control";
+"Enable Haptic Feedback" = "Enable Haptic Feedback";
+
+// Test Area
+"Test Area" = "Test Area";
+"Welcome to HappyCursor Global Cursor Controller!" = "Welcome to HappyCursor Global Cursor Controller!";
+"This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text." = "This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text.";
+
+// Instructions
+"Instructions" = "Instructions";
+"Hold the set hotkey" = "Hold the set hotkey";
+"Slide trackpad to move cursor" = "Slide trackpad to move cursor";
+"Haptic feedback on each movement" = "Haptic feedback on each movement";
+"Requires authorization in System Settings > Accessibility" = "Requires authorization in System Settings > Accessibility";
+
+// Buttons
+"Reset to Default" = "Reset to Default";
+"Upgrade to Pro" = "Upgrade to Pro";
+
+// Alerts
+"Error" = "Error";
+"OK" = "OK";
+
+// Help text
+"Reset to default configuration" = "Reset to default configuration";
+
+"Hotkey" = "Hotkey";
+"Disable Cursor Control" = "Disable Cursor Control";
+"Disable Haptic Feedback" = "Disable Haptic Feedback";
+"Settings" = "Settings";
+"About HappyCursor" = "About HappyCursor";
+"Quit" = "Quit";
+"AboutText" = "Global Cursor Controller\nVersion 1.2.0\n\nMake your text editing experience smoother and more efficient!";
+
+// Permission Prompt
+"Accessibility permission required" = "Accessibility permission required";
+"To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings." = "To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings.";
+"Open System Settings" = "Open System Settings";
+"After authorization, you may need to restart HappyCursor for all features to take effect." = "After authorization, you may need to restart HappyCursor for all features to take effect."; 

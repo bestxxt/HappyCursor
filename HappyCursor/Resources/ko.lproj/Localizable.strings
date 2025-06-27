@@ -1,0 +1,72 @@
+// App Title
+"HappyCursor" = "HappyCursor";
+"Global Cursor Controller" = "글로벌 커서 컨트롤러";
+
+// Key Status
+"Key Status" = "키 상태";
+"Shift" = "⇧ Shift";
+"Command" = "⌘ Command";
+"Option" = "⌥ Option";
+
+// Trigger Hotkey
+"Trigger Hotkey" = "트리거 단축키";
+
+// Movement Sensitivity
+"Movement Sensitivity" = "이동 감도";
+"Horizontal Movement" = "수평 이동";
+"Vertical Movement" = "수직 이동";
+"Enable Horizontal Movement" = "수평 이동 활성화";
+"Enable Vertical Movement" = "수직 이동 활성화";
+
+// Enhanced Movement Options
+"Word Jump" = "단어 점프";
+"Line Start/End" = "줄 시작/끝";
+"Select" = "선택";
+"Column Start/End" = "열 시작/끝";
+
+// App Specific Control
+"App Specific Control" = "앱별 제어";
+"Enable cursor control only in selected apps" = "선택한 앱에서만 커서 제어 활성화";
+"App Whitelist (check to enable)" = "앱 화이트리스트 (체크하여 활성화)";
+
+// General Settings
+"General Settings" = "일반 설정";
+"Enable Cursor Control" = "커서 제어 활성화";
+"Enable Haptic Feedback" = "햅틱 피드백 활성화";
+
+// Test Area
+"Test Area" = "테스트 영역";
+"Welcome to HappyCursor Global Cursor Controller!" = "HappyCursor 글로벌 커서 컨트롤러에 오신 것을 환영합니다!";
+"This is a test area where you can experience cursor movement functionality. Hold the set hotkey (default is Command key) and slide the trackpad, you will see the cursor moving in the text." = "이것은 커서 이동 기능을 경험할 수 있는 테스트 영역입니다. 설정된 단축키(기본값은 Command 키)를 누른 상태에서 트랙패드를 슬라이드하면 텍스트 내에서 커서가 이동하는 것을 볼 수 있습니다.";
+
+// Instructions
+"Instructions" = "사용법";
+"Hold the set hotkey" = "설정된 단축키를 누르세요";
+"Slide trackpad to move cursor" = "트랙패드를 슬라이드하여 커서를 이동하세요";
+"Haptic feedback on each movement" = "각 이동마다 햅틱 피드백";
+"Requires authorization in System Settings > Accessibility" = "시스템 설정 > 접근성에서 권한이 필요합니다";
+
+// Buttons
+"Reset to Default" = "기본값으로 재설정";
+"Upgrade to Pro" = "Pro로 업그레이드";
+
+// Alerts
+"Error" = "오류";
+"OK" = "확인";
+
+// Help text
+"Reset to default configuration" = "기본 구성으로 재설정";
+
+"Hotkey" = "단축키";
+"Disable Cursor Control" = "커서 제어 비활성화";
+"Disable Haptic Feedback" = "햅틱 피드백 비활성화";
+"Settings" = "설정";
+"About HappyCursor" = "HappyCursor 정보";
+"Quit" = "종료";
+"AboutText" = "글로벌 커서 컨트롤러\n버전 1.2.0\n\n텍스트 편집 경험을 더욱 부드럽고 효율적으로!";
+
+// Permission Prompt
+"Accessibility permission required" = "접근성 권한이 필요합니다";
+"To allow HappyCursor to control the cursor globally,\nplease grant Accessibility permission in System Settings." = "HappyCursor가 전역적으로 커서를 제어할 수 있도록\n시스템 설정에서 접근성 권한을 부여해 주세요.";
+"Open System Settings" = "시스템 설정 열기";
+"After authorization, you may need to restart HappyCursor for all features to take effect." = "권한 부여 후 모든 기능이 작동하려면 HappyCursor를 재시작해야 할 수 있습니다."; 
