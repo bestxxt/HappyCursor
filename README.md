@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="images/logo.png" alt="HappyCursor Logo" width="128" height="128">
+</div>
+
 # HappyCursor
 
 A professional macOS application designed specifically for terminal applications, providing precise text cursor movement control through trackpad gestures and keyboard shortcuts, delivering a smooth haptic feedback experience
@@ -29,9 +33,7 @@ A professional macOS application designed specifically for terminal applications
 
 ## 🎯 Use Cases
 
-- **Programming**: Quick cursor positioning in VSCode, Xcode
-- **Document Editing**: Efficient cursor movement in Pages, Word
-- **Web Browsing**: Fast text positioning in Safari, Chrome
+It works in most text editors like VSCode, as well as in some environments that require a lot of arrow key input. but I prefer to use it in my terminal, trust me, it's much better than using little finger to press the small arrow keys
 
 ## 🔒 Privacy
 
@@ -42,5 +44,5 @@ A professional macOS application designed specifically for terminal applications
 
 ---
 
-**HappyCursor** - Making cursor movement smarter 🎯
-
+**Build because the arrow keys on the Macbook are terrible? 🤨** 
+> If you think so, support me with a star 😘
