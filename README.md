@@ -11,7 +11,7 @@ A professional macOS application designed specifically for terminal applications
 ## 🚀 System Requirements
 
 - **macOS**: 10.15 (Catalina) or higher
-- **Hardware**: Mac device with haptic feedback support (MacBook Pro with Touch Bar)
+- **Hardware**: Mac device with haptic feedback support (optional)
 - **Permissions**: Accessibility permissions required
 
 ## 📦 Installation and Usage
