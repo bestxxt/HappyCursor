@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
   <img src="images/logo.png" alt="HappyCursor Logo" width="128" height="128">
 </div>
 
