@@ -11,7 +11,7 @@ class LocalizationManager: ObservableObject {
         }
     }
     
-    // 静态支持语言列表
+    // Static supported language list
     static let supportedLanguages: [(code: String, name: String)] = [
         ("en", "English"),
         ("zh", "简体中文"),
@@ -35,36 +35,36 @@ class LocalizationManager: ObservableObject {
     }
     
     private init() {
-        // 从UserDefaults获取保存的语言设置，如果没有则使用系统语言
+        // Get saved language setting from UserDefaults, if not available use system language
         let savedLanguage = UserDefaults.standard.string(forKey: "AppLanguage")
         
         if let savedLanguage = savedLanguage, Self.isValidLanguageCode(savedLanguage) {
             self.currentLanguage = savedLanguage
         } else {
-            // 获取系统语言并映射到我们支持的语言
+            // Get system language and map to our supported languages
             let systemLanguage: String
             if #available(macOS 13.0, *) {
                 systemLanguage = Locale.current.language.languageCode?.identifier ?? "en"
             } else {
                 systemLanguage = Locale.current.languageCode ?? "en"
             }
-            // 将系统语言映射到我们支持的语言
+            // Map system language to our supported languages
             self.currentLanguage = Self.mapSystemLanguageToSupported(systemLanguage)
         }
         updateBundle()
     }
     
     private func updateLanguage() {
-        // 通知所有视图更新语言
+        // Notify all views to update language
         NotificationCenter.default.post(name: .languageChanged, object: nil)
     }
     
-    // 获取当前支持的语言列表 - 使用标准的ISO 639-1语言代码
+    // Get current supported language list - use standard ISO 639-1 language codes
     var supportedLanguages: [(code: String, name: String)] {
         return Self.supportedLanguages
     }
     
-    // 获取语言的本地化名称
+    // Get localized name for language
     func localizedLanguageName(for code: String) -> String {
         switch code {
         case "en":
@@ -88,14 +88,14 @@ class LocalizationManager: ObservableObject {
         }
     }
     
-    // 验证语言代码是否有效
+    // Validate if language code is valid
     static func isValidLanguageCode(_ code: String) -> Bool {
         return supportedLanguages.contains { $0.code == code }
     }
     
-    // 将系统语言映射到我们支持的语言
+    // Map system language to our supported languages
     static func mapSystemLanguageToSupported(_ systemLanguage: String) -> String {
-        // 提取基础语言代码（去掉地区后缀）
+        // Extract base language code (remove region suffix)
         let baseLanguage = systemLanguage.split(separator: "-").first?.lowercased() ?? systemLanguage.lowercased()
         
         switch baseLanguage {
@@ -116,17 +116,17 @@ class LocalizationManager: ObservableObject {
         case "en":
             return "en"
         default:
-            return "en" // 默认使用英文
+            return "en" // Default to English
         }
     }
 }
 
-// 扩展Notification.Name
+// Extension for Notification.Name
 extension Notification.Name {
     static let languageChanged = Notification.Name("languageChanged")
 }
 
-// 扩展String，提供便捷的本地化方法，动态切换bundle
+// Extension for String, providing convenient localization method, dynamically switch bundle
 extension String {
     var localized: String {
         let bundle = LocalizationManager.shared.bundle

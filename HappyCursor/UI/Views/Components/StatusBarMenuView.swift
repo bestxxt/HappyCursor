@@ -16,17 +16,17 @@ struct StatusBarMenuView: View {
     
     var body: some View {
         Group {
-            // 应用标题
+            // Application title
 
             Text("HappyCursor".localized)
                 .font(.headline)
-                .foregroundColor(.primary) // 改为黑色
+                .foregroundColor(.primary) // Changed to black
 
             .padding(.vertical, 2)
             
             Divider()
             
-            // 光标控制开关
+            // Cursor control toggle
             Button(action: toggleCursorControl) {
                 Label {
                     Text(isCursorControlEnabled ? "Disable Cursor Control".localized : "Enable Cursor Control".localized)
@@ -37,7 +37,7 @@ struct StatusBarMenuView: View {
                 }
             }
             
-            // 触觉反馈开关
+            // Haptic feedback toggle
             Button(action: toggleHapticFeedback) {
                 Label {
                     Text(isHapticFeedbackEnabled ? "Disable Haptic Feedback".localized : "Enable Haptic Feedback".localized)
@@ -50,17 +50,17 @@ struct StatusBarMenuView: View {
             
             Divider()
             
-            // 设置
+            // Settings
             settingItem
             
             Divider()
             
-            // 关于
+            // About
             Button(action: showAbout) {
                 Label("About HappyCursor".localized, systemImage: "info.circle")
             }
             
-            // 退出
+            // Quit
             Button(action: { NSApplication.shared.terminate(nil) }) {
                 Label("Quit".localized, systemImage: "power.circle")
             }
@@ -74,12 +74,12 @@ struct StatusBarMenuView: View {
     
     @ViewBuilder private var settingItem: some View {
         if #available(macOS 14.0, *) {
-            // macOS 14+ 使用 SettingsLink
+            // macOS 14+ use SettingsLink
             SettingsLink {
                 Label("Settings".localized, systemImage: "gearshape")
             }
         } else {
-            // macOS 14 以下使用传统方式
+            // macOS 14 and below use traditional method
             Button(action: {
                 NSApp.activate(ignoringOtherApps: true)
                 NotificationCenter.default.post(name: NSNotification.Name("OpenSettings"), object: nil)

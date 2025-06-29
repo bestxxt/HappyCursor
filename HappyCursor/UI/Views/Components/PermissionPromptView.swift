@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// 权限提示视图
+/// Permission prompt view
 struct PermissionPromptView: View {
     @EnvironmentObject var appDelegate: AppDelegate
     

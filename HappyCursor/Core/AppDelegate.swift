@@ -7,7 +7,7 @@
 
 import Cocoa
 
-/// 应用代理类，负责全局事件监听和光标控制
+/// Application delegate class, responsible for global event monitoring and cursor control
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // MARK: - Published Properties
@@ -16,12 +16,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         didSet {
             if isAccessibilityPermissionGranted {
                 if eventTap == nil {
-                    print("权限已授予，正在启动事件监听...")
+                    print("Permission granted, starting event monitoring...")
                     setupEventTap()
                 }
             } else {
                 if eventTap != nil {
-                    print("权限已撤销，正在停止事件监听...")
+                    print("Permission revoked, stopping event monitoring...")
                     cleanupEventTap()
                 }
             }
@@ -30,9 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // MARK: - Properties
     
-    /// 事件监听器
+    /// Event listener
     private var eventTap: CFMachPort?
-    /// 运行循环源
+    /// Run loop source
     private var runLoopSource: CFRunLoopSource?
     
     // MARK: - Configuration Keys
@@ -46,24 +46,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         static let enableHapticFeedback = "enableHapticFeedback"
         static let enableCursorControl = "enableCursorControl"
         
-        // 水平移动增强功能
+        // Horizontal movement enhancement features
         static let horizontalWordJump = "horizontalWordJump"
         static let horizontalBeginEnd = "horizontalBeginEnd"
         static let horizontalShift = "horizontalShift"
         
-        // 垂直移动增强功能
+        // Vertical movement enhancement features
         static let verticalWordJump = "verticalWordJump"
         static let verticalBeginEnd = "verticalBeginEnd"
         static let verticalShift = "verticalShift"
         
-        // 新增：应用特定控制
+        // New: Application-specific control
         static let enableAppSpecificControl = "enableAppSpecificControl"
         static let enabledApps = "enabledApps"
     }
     
     // MARK: - Configuration
     
-    /// 水平移动阈值（越小越灵敏）
+    /// Horizontal movement threshold (smaller value = more sensitive)
     static var moveThresholdX: Double {
         get {
             return (UserDefaults.standard.object(forKey: ConfigKeys.moveThresholdX) as? Double) ?? 10.0
@@ -73,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 垂直移动阈值（越小越灵敏）
+    /// Vertical movement threshold (smaller value = more sensitive)
     static var moveThresholdY: Double {
         get {
             return (UserDefaults.standard.object(forKey: ConfigKeys.moveThresholdY) as? Double) ?? 20.0
@@ -83,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 当前选中的快捷键
+    /// Currently selected hotkey
     static var hotkey: ModifierKey {
         get {
             let rawValue = UserDefaults.standard.string(forKey: ConfigKeys.hotkey) ?? ModifierKey.command.rawValue
@@ -94,7 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 是否启用水平移动
+    /// Whether horizontal movement is enabled
     static var enableHorizontal: Bool {
         get {
             return (UserDefaults.standard.object(forKey: ConfigKeys.enableHorizontal) as? Bool) ?? true
@@ -104,7 +104,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 是否启用垂直移动
+    /// Whether vertical movement is enabled
     static var enableVertical: Bool {
         get {
             return (UserDefaults.standard.object(forKey: ConfigKeys.enableVertical) as? Bool) ?? true
@@ -114,7 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 是否启用触觉反馈
+    /// Whether haptic feedback is enabled
     static var enableHapticFeedback: Bool {
         get {
             return (UserDefaults.standard.object(forKey: ConfigKeys.enableHapticFeedback) as? Bool) ?? true
@@ -124,54 +124,54 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 是否启用光标控制（总开关）
+    /// Whether cursor control is enabled (master switch)
     static var enableCursorControl: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.enableCursorControl) as? Bool) ?? true }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.enableCursorControl) }
     }
     
-    // MARK: - 水平移动增强功能
+    // MARK: - Horizontal Movement Enhancement Features
     
-    /// 水平移动是否启用按词移动 (Option)
+    /// Whether horizontal movement enables word-by-word movement (Option)
     static var horizontalWordJump: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.horizontalWordJump) as? Bool) ?? false }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.horizontalWordJump) }
     }
     
-    /// 水平移动是否启用行首/尾移动 (Command)
+    /// Whether horizontal movement enables beginning/end of line movement (Command)
     static var horizontalBeginEnd: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.horizontalBeginEnd) as? Bool) ?? false }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.horizontalBeginEnd) }
     }
     
-    /// 水平移动是否启用选中功能 (Shift)
+    /// Whether horizontal movement enables selection functionality (Shift)
     static var horizontalShift: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.horizontalShift) as? Bool) ?? false }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.horizontalShift) }
     }
     
-    // MARK: - 垂直移动增强功能
+    // MARK: - Vertical Movement Enhancement Features
     
-    /// 垂直移动是否启用行首/尾移动 (Command)
+    /// Whether vertical movement enables beginning/end of line movement (Command)
     static var verticalBeginEnd: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.verticalBeginEnd) as? Bool) ?? false }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.verticalBeginEnd) }
     }
     
-    /// 垂直移动是否启用选中功能 (Shift)
+    /// Whether vertical movement enables selection functionality (Shift)
     static var verticalShift: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.verticalShift) as? Bool) ?? false }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.verticalShift) }
     }
     
-    /// 应用特定控制
-    /// 是否启用应用特定控制（白名单）
+    /// Application-specific control
+    /// Whether application-specific control is enabled (whitelist)
     static var enableAppSpecificControl: Bool {
         get { (UserDefaults.standard.object(forKey: ConfigKeys.enableAppSpecificControl) as? Bool) ?? false }
         set { UserDefaults.standard.set(newValue, forKey: ConfigKeys.enableAppSpecificControl) }
     }
     
-    /// 白名单应用（应用名）
+    /// Whitelist applications (application names)
     static var enabledApps: Set<String> {
         get {
             let array = UserDefaults.standard.stringArray(forKey: ConfigKeys.enabledApps) ?? []
@@ -182,7 +182,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 获取所有已安装应用（应用名）
+    /// Get all installed applications (application names)
     static func getAllInstalledApps() -> [String] {
         let appDirs = ["/Applications", "/System/Applications", NSHomeDirectory() + "/Applications"]
         var allApps: Set<String> = []
@@ -204,7 +204,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         return Array(allApps).sorted()
     }
     
-    /// 判断当前激活应用是否在白名单
+    /// Check if current active application is in whitelist
     static func isAppEnabledForCursorControl() -> Bool {
         guard let activeApp = NSWorkspace.shared.frontmostApplication else {
             return false
@@ -213,7 +213,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         return enabledApps.contains(appName)
     }
     
-    /// 修饰键类型枚举
+    /// Modifier key type enumeration
     enum ModifierKey: String, CaseIterable, Identifiable {
         case shift = "Shift"
         case command = "Command"
@@ -221,7 +221,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         
         var id: String { rawValue }
         
-        /// 对应的NSEvent修饰键标志
+        /// Corresponding NSEvent modifier key flags
         var flag: NSEvent.ModifierFlags {
             switch self {
             case .shift: return .shift
@@ -230,7 +230,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             }
         }
         
-        /// 对应的CGEvent修饰键标志
+        /// Corresponding CGEvent modifier key flags
         var cgFlag: CGEventFlags {
             switch self {
             case .shift: return .maskShift
@@ -239,7 +239,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             }
         }
         
-        /// 显示符号
+        /// Display symbol
         var symbol: String {
             switch self {
             case .shift: return "⇧ Shift"
@@ -251,16 +251,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // MARK: - State Management
     
-    /// 水平方向累计移动量
+    /// Horizontal direction cumulative movement amount
     static var accumX: Double = 0.0
-    /// 垂直方向累计移动量
+    /// Vertical direction cumulative movement amount
     static var accumY: Double = 0.0
-    /// 热键是否处于激活状态
+    /// Whether hotkey is active
     static var isHotkeyActive: Bool = false
-    /// 热键激活时锁定的鼠标位置
+    /// Mouse position locked when hotkey is active
     static var lockedMousePosition: CGPoint?
     
-    /// 全局修饰键状态
+    /// Global modifier key status
     static var isCmdPressed: Bool = false
     static var isOptPressed: Bool = false
     static var isShiftPressed: Bool = false
@@ -268,29 +268,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     // MARK: - Application Lifecycle
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        print("HappyCursor 启动中...")
+        print("HappyCursor starting...")
         
-        // 设置应用为代理应用，支持状态栏模式
+        // Set application as delegate application, support status bar mode
         NSApp.setActivationPolicy(.accessory)
         
         checkAccessibilityPermission()
-        print("HappyCursor 启动完成")
+        print("HappyCursor startup completed")
     }
     
     func applicationWillTerminate(_ notification: Notification) {
-        print("HappyCursor 正在关闭...")
+        print("HappyCursor closing...")
         cleanupEventTap()
-        print("HappyCursor 已关闭")
+        print("HappyCursor closed")
     }
     
-    /// 防止窗口关闭时应用退出
+    /// Prevent application from exiting when window is closed
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return false
     }
     
     // MARK: - Settings Management
     
-    /// 重置为默认设置
+    /// Reset to default settings
     static func resetToDefaultSettings() {
         UserDefaults.standard.set(10.0, forKey: ConfigKeys.moveThresholdX)
         UserDefaults.standard.set(10.0, forKey: ConfigKeys.moveThresholdY)
@@ -300,23 +300,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         UserDefaults.standard.set(true, forKey: ConfigKeys.enableHapticFeedback)
         UserDefaults.standard.set(true, forKey: ConfigKeys.enableCursorControl)
         
-        // 水平移动增强功能默认值
+        // Default values for horizontal movement enhancement features
         UserDefaults.standard.set(false, forKey: ConfigKeys.horizontalWordJump)
         UserDefaults.standard.set(false, forKey: ConfigKeys.horizontalBeginEnd)
         UserDefaults.standard.set(false, forKey: ConfigKeys.horizontalShift)
         
-        // 垂直移动增强功能默认值
+        // Default values for vertical movement enhancement features
         UserDefaults.standard.set(false, forKey: ConfigKeys.verticalBeginEnd)
         UserDefaults.standard.set(false, forKey: ConfigKeys.verticalShift)
         
-        print("配置已重置为默认值")
+        print("Configuration reset to default values")
     }
     
     // MARK: - Accessibility Permission
     
-    /// 检查辅助功能权限
+    /// Check accessibility permission
     func checkAccessibilityPermission() {
-        // 更新无障碍权限状态
+        // Update accessibility permission status
         isAccessibilityPermissionGranted = AXIsProcessTrusted()
         
         if isAccessibilityPermissionGranted {
@@ -326,7 +326,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 打开辅助功能系统设置
+    /// Open accessibility system settings
     func openAccessibilitySettings() {
         let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!
         NSWorkspace.shared.open(url)
@@ -334,9 +334,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // MARK: - Event Handling Setup
     
-    /// 设置全局事件监听
+    /// Set up global event monitoring
     private func setupEventTap() {
-        // 监听鼠标移动和修饰键变化事件
+        // Listen for mouse movement and modifier key change events
         let mask = (1 << CGEventType.mouseMoved.rawValue) | (1 << CGEventType.flagsChanged.rawValue)
         
         eventTap = CGEvent.tapCreate(
@@ -359,13 +359,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
             CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
             CGEvent.tapEnable(tap: eventTap, enable: true)
-            print("✅ 全局事件监听已启动")
+            print("✅ Global event monitoring started")
         } else {
-            print("❌ 全局事件监听启动失败")
+            print("❌ Global event monitoring startup failed")
         }
     }
     
-    /// 清理事件监听器
+    /// Clean up event listener
     private func cleanupEventTap() {
         if let eventTap = eventTap {
             CFMachPortInvalidate(eventTap)
@@ -379,7 +379,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // MARK: - Event Processing
     
-    /// 处理全局事件
+    /// Handle global events
     static func handleEvent(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent) -> CGEvent? {
         switch type {
         case .flagsChanged:
@@ -391,11 +391,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 处理修饰键变化事件
+    /// Handle modifier key change events
     private static func handleFlagsChanged(event: CGEvent) -> CGEvent {
         let flags = event.flags
         
-        // 更新全局修饰键状态
+        // Update global modifier key status
         isCmdPressed = flags.contains(.maskCommand)
         isOptPressed = flags.contains(.maskAlternate)
         isShiftPressed = flags.contains(.maskShift)
@@ -403,25 +403,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         let isHotkeyCurrentlyPressed = flags.contains(hotkey.cgFlag)
         
         if isHotkeyCurrentlyPressed && !isHotkeyActive {
-            // 热键刚刚被按下
+            // Hotkey just pressed
             isHotkeyActive = true
             lockedMousePosition = event.location
-            print("热键已按下，锁定鼠标位置于: \(String(describing: lockedMousePosition))")
+            print("Hotkey pressed, locked mouse position to: \(String(describing: lockedMousePosition))")
         } else if !isHotkeyCurrentlyPressed && isHotkeyActive {
-            // 热键刚刚被释放
+            // Hotkey just released
             isHotkeyActive = false
             lockedMousePosition = nil
-            print("热键已释放，解除鼠标锁定。")
+            print("Hotkey released, unlocked mouse.")
         }
         
         return event
     }
     
-    /// 处理鼠标移动事件
+    /// Handle mouse movement events
     private static func handleMouseMoved(event:CGEvent) -> CGEvent? {
-        // 检查光标控制是否启用
+        // Check if cursor control is enabled
         guard enableCursorControl else { return event }
-        // 检查应用特定控制
+        // Check application-specific control
         if enableAppSpecificControl {
             guard isAppEnabledForCursorControl() else { return event }
         }
@@ -430,40 +430,40 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             return event
         }
         
-        // 获取鼠标移动距离
+        // Get mouse movement distance
         let deltaX = event.getDoubleValueField(.mouseEventDeltaX)
         let deltaY = event.getDoubleValueField(.mouseEventDeltaY)
         
-        // 累加移动量
+        // Accumulate movement amount
         accumX += deltaX
         accumY += deltaY
         
-        // 处理水平移动
+        // Process horizontal movement
         if enableHorizontal {
             processHorizontalMovement()
         }
         
-        // 处理垂直移动
+        // Process vertical movement
         if enableVertical {
             processVerticalMovement()
         }
         
-        // 将鼠标传送回锁定位置
+        // Warp mouse back to locked position
         CGWarpMouseCursorPosition(lockedPos)
         
-        // 阻止原事件（不让鼠标指针移动）
+        // Prevent original event (don't move mouse pointer)
         return nil
     }
     
-    /// 处理水平移动
+    /// Process horizontal movement
     private static func processHorizontalMovement() {
         while abs(accumX) >= moveThresholdX {
             if accumX > 0 {
-                sendArrowKey(left: false, isHorizontal: true) // 向右
+                sendArrowKey(left: false, isHorizontal: true) // Right
                 accumX -= moveThresholdX
                 accumY = 0
             } else {
-                sendArrowKey(left: true, isHorizontal: true)  // 向左
+                sendArrowKey(left: true, isHorizontal: true)  // Left
                 accumX += moveThresholdX
                 accumY = 0
             }
@@ -473,15 +473,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
-    /// 处理垂直移动
+    /// Process vertical movement
     private static func processVerticalMovement() {
         while abs(accumY) >= moveThresholdY {
             if accumY > 0 {
-                sendArrowKey(up: false, isHorizontal: false)   // 向下
+                sendArrowKey(up: false, isHorizontal: false)   // Down
                 accumY -= moveThresholdY
                 accumX = 0
             } else {
-                sendArrowKey(up: true, isHorizontal: false)    // 向上
+                sendArrowKey(up: true, isHorizontal: false)    // Up
                 accumY += moveThresholdY
                 accumX = 0
             }
@@ -493,7 +493,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // MARK: - Keyboard Simulation
     
-    /// 发送方向键事件
+    /// Send direction key events
     static func sendArrowKey(left: Bool? = nil, up: Bool? = nil, isHorizontal: Bool = true) {
         var key: CGKeyCode = 0
         
@@ -508,9 +508,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         
         var customFlags: CGEventFlags = []
         
-        // 根据移动方向应用相应的增强功能
+        // Apply corresponding enhancement features based on movement direction
         if isHorizontal {
-            // 水平移动增强功能
+            // Horizontal movement enhancement features
             if horizontalWordJump {
                 customFlags.insert(.maskControl)
             }
@@ -521,7 +521,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 customFlags.insert(.maskShift)
             }
         } else {
-            // 垂直移动增强功能
+            // Vertical movement enhancement features
             if verticalBeginEnd {
                 customFlags.insert(.maskCommand)
             }
@@ -530,7 +530,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             }
         }
         
-        // 应用修饰键标志 - 先清除所有修饰键，然后添加自定义修饰键
+        // Apply modifier key flags - first clear all modifier keys, then add custom modifier keys
         keyDown?.flags = customFlags
         keyUp?.flags = customFlags
         

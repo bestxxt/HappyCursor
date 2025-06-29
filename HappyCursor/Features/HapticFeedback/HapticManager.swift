@@ -8,48 +8,48 @@
 import Foundation
 import AppKit
 
-/// 触觉反馈管理器
-/// 负责管理应用中的各种触觉反馈效果
+/// Haptic feedback manager
+/// Responsible for managing various haptic feedback effects in the application
 class HapticManager: ObservableObject {
     
     // MARK: - Singleton
     
-    /// 共享实例
+    /// Shared instance
     static let shared = HapticManager()
     
     // MARK: - Properties
     
-    /// 系统触觉反馈管理器
+    /// System haptic feedback manager
     private let hapticManager = NSHapticFeedbackManager.defaultPerformer
     
     // MARK: - Initialization
     
     private init() {
-        print("🎯 触觉反馈管理器已初始化")
+        print("🎯 Haptic feedback manager initialized")
     }
     
     // MARK: - Haptic Feedback Methods
     
-    /// 触发通用触觉反馈
-    /// 适用于一般的用户交互反馈
+    /// Trigger generic haptic feedback
+    /// Suitable for general user interaction feedback
     func triggerGenericHaptic() {
         hapticManager.perform(.generic, performanceTime: .now)
     }
     
-    /// 触发对齐触觉反馈
-    /// 适用于元素对齐或吸附时的反馈
+    /// Trigger alignment haptic feedback
+    /// Suitable for feedback when elements are aligned or snapped
     func triggerAlignmentHaptic() {
         hapticManager.perform(.alignment, performanceTime: .now)
     }
     
-    /// 触发等级变化触觉反馈
-    /// 适用于数值或等级变化时的反馈
+    /// Trigger level change haptic feedback
+    /// Suitable for feedback when values or levels change
     func triggerLevelChangeHaptic() {
         hapticManager.perform(.levelChange, performanceTime: .now)
     }
     
-    /// 触发连续触觉反馈
-    /// - Parameter duration: 持续时间（秒）
+    /// Trigger continuous haptic feedback
+    /// - Parameter duration: Duration (seconds)
     func triggerContinuousHaptic(duration: TimeInterval = 1.0) {
         let startTime = Date()
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
@@ -61,8 +61,8 @@ class HapticManager: ObservableObject {
         }
     }
     
-    /// 触发触觉反馈序列
-    /// 依次触发不同类型的触觉反馈
+    /// Trigger haptic feedback sequence
+    /// Trigger different types of haptic feedback in sequence
     func triggerHapticSequence() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
             self.triggerGenericHaptic()
@@ -77,22 +77,22 @@ class HapticManager: ObservableObject {
     
     // MARK: - Utility Methods
     
-    /// 检查设备是否支持触觉反馈
-    /// - Returns: 是否支持触觉反馈
+    /// Check if device supports haptic feedback
+    /// - Returns: Whether haptic feedback is supported
     func isHapticFeedbackSupported() -> Bool {
-        // NSHapticFeedbackManager.defaultPerformer 总是返回一个有效的对象，
-        // 如果硬件不支持，调用 perform 会静默失败。
-        // 因此，我们假定它总是受支持的。
+        // NSHapticFeedbackManager.defaultPerformer always returns a valid object,
+        // if hardware doesn't support it, calling perform will fail silently.
+        // Therefore, we assume it's always supported.
         return true
     }
     
-    /// 获取触觉反馈状态信息
-    /// - Returns: 状态描述字符串
+    /// Get haptic feedback status information
+    /// - Returns: Status description string
     func getHapticStatus() -> String {
         if isHapticFeedbackSupported() {
-            return "✅ 触觉反馈已启用"
+            return "✅ Haptic feedback enabled"
         } else {
-            return "⚠️ 当前设备不支持触觉反馈"
+            return "⚠️ Current device doesn't support haptic feedback"
         }
     }
 } 

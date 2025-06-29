@@ -25,10 +25,10 @@ struct InstructionRow: View {
 
 #Preview {
     VStack(alignment: .leading, spacing: 8) {
-        InstructionRow(icon: "1.circle.fill", text: "按住设定的快捷键")
-        InstructionRow(icon: "2.circle.fill", text: "滑动触摸板移动光标")
-        InstructionRow(icon: "3.circle.fill", text: "每次移动会触发触觉反馈")
-        InstructionRow(icon: "exclamationmark.triangle.fill", text: "需要在系统设置 > 辅助功能中授权")
+        InstructionRow(icon: "1.circle.fill", text: "Hold the set hotkey")
+        InstructionRow(icon: "2.circle.fill", text: "Slide trackpad to move cursor")
+        InstructionRow(icon: "3.circle.fill", text: "Haptic feedback on each movement")
+        InstructionRow(icon: "exclamationmark.triangle.fill", text: "Requires authorization in System Settings > Accessibility")
     }
     .padding()
 } 

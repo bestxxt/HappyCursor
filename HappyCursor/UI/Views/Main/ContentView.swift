@@ -14,7 +14,7 @@ struct ContentView: View {
     @StateObject private var localizationManager = LocalizationManager.shared
     
     @State private var text: String = {
-        // 使用LocalizationManager的当前语言设置初始文本
+        // Use LocalizationManager's current language to set initial text
         let language = LocalizationManager.shared.currentLanguage
         
         if language == "zh" {
@@ -63,12 +63,12 @@ struct ContentView: View {
     @State private var enableHapticFeedback: Bool = AppDelegate.enableHapticFeedback
     @State private var enableCursorControl: Bool = AppDelegate.enableCursorControl
     
-    // 水平移动增强功能
+    // Horizontal movement enhancement features
     @State private var horizontalWordJump: Bool = AppDelegate.horizontalWordJump
     @State private var horizontalBeginEnd: Bool = AppDelegate.horizontalBeginEnd
     @State private var horizontalShift: Bool = AppDelegate.horizontalShift
     
-    // 垂直移动增强功能
+    // Vertical movement enhancement features
     @State private var verticalBeginEnd: Bool = AppDelegate.verticalBeginEnd
     @State private var verticalShift: Bool = AppDelegate.verticalShift
     
@@ -81,7 +81,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                // 顶部标题区域
+                // Top title area
                 VStack(spacing: 16) {
                     HStack {
                         Image("interface_icon")
@@ -99,7 +99,7 @@ struct ContentView: View {
                         }
                         Spacer()
                         
-                        // Buy Me a Coffee 按钮
+                        // Buy Me a Coffee button
                         Button(action: {
                             if let url = URL(string: "https://coff.ee/terry_xie") {
                                 NSWorkspace.shared.open(url)
@@ -118,12 +118,12 @@ struct ContentView: View {
                             .cornerRadius(6)
                         }
                         .buttonStyle(PlainButtonStyle())
-                        .help("赞助作者 Buy Me a Coffee")
+                        .help("Sponsor the author Buy Me a Coffee")
 
-                        // 重置配置按钮
+                        // Reset configuration button
                         Button(action: {
                             AppDelegate.resetToDefaultSettings()
-                            // 重新加载配置到UI
+                            // Reload configuration to UI
                             moveThresholdX = AppDelegate.moveThresholdX
                             moveThresholdY = AppDelegate.moveThresholdY
                             hotkey = AppDelegate.hotkey
@@ -132,7 +132,7 @@ struct ContentView: View {
                             enableHapticFeedback = AppDelegate.enableHapticFeedback
                             enableCursorControl = AppDelegate.enableCursorControl
                             
-                            // 重新加载移动增强功能配置
+                            // Reload movement enhancement feature configuration
                             horizontalWordJump = AppDelegate.horizontalWordJump
                             horizontalBeginEnd = AppDelegate.horizontalBeginEnd
                             horizontalShift = AppDelegate.horizontalShift
@@ -154,14 +154,14 @@ struct ContentView: View {
                 
                 ScrollView {
                     VStack(spacing: 32) {
-                        // 通用设置（General Settings）
+                        // General Settings
                         VStack(alignment: .leading, spacing: 12) {
                             Text("General Settings".localized)
                                 .font(.headline)
                                 .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            // 语言选择器
+                            // Language selector
                             LanguageSelectorView()
                             
                             Toggle("Enable Cursor Control".localized, isOn: $enableCursorControl)
@@ -176,7 +176,7 @@ struct ContentView: View {
                         }
                         .padding(.horizontal, 24)
                         
-                        // 快捷键状态显示
+                        // Key status display
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Key Status".localized)
                                 .font(.headline)
@@ -194,7 +194,7 @@ struct ContentView: View {
                         }
                         .padding(.horizontal, 24)
                         
-                        // 触发快捷键设置
+                        // Trigger hotkey settings
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Trigger Hotkey".localized)
                                 .font(.headline)
@@ -213,14 +213,14 @@ struct ContentView: View {
                         }
                         .padding(.horizontal, 24)
                         
-                        // 移动灵敏度设置
+                        // Movement sensitivity settings
                         VStack(alignment: .leading, spacing: 20) {
                             Text("Movement Sensitivity".localized)
                                 .font(.headline)
                                 .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            // 水平移动设置
+                            // Horizontal movement settings
                             VStack(alignment: .leading, spacing: 12) {
                                 HStack {
                                     Text("Horizontal Movement".localized)
@@ -257,12 +257,12 @@ struct ContentView: View {
                                     
                                     Spacer()
                                     
-                                    // 水平移动增强选项
+                                    // Horizontal movement enhancement options
                                     HStack(spacing: 12) {
                                         Toggle("Word Jump".localized, isOn: $horizontalWordJump)
                                             .onChange(of: horizontalWordJump) { _, newValue in
                                                 if newValue {
-                                                    // 互斥选择：关闭其他选项
+                                                    // Mutually exclusive selection: turn off other options
                                                     horizontalBeginEnd = false
                                                     horizontalShift = false
                                                     AppDelegate.horizontalBeginEnd = false
@@ -274,7 +274,7 @@ struct ContentView: View {
                                         Toggle("Line Start/End".localized, isOn: $horizontalBeginEnd)
                                             .onChange(of: horizontalBeginEnd) { _, newValue in
                                                 if newValue {
-                                                    // 互斥选择：关闭其他选项
+                                                    // Mutually exclusive selection: turn off other options
                                                     horizontalWordJump = false
                                                     horizontalShift = false
                                                     AppDelegate.horizontalWordJump = false
@@ -286,7 +286,7 @@ struct ContentView: View {
                                         Toggle("Select".localized, isOn: $horizontalShift)
                                             .onChange(of: horizontalShift) { _, newValue in
                                                 if newValue {
-                                                    // 互斥选择：关闭其他选项
+                                                    // Mutually exclusive selection: turn off other options
                                                     horizontalWordJump = false
                                                     horizontalBeginEnd = false
                                                     AppDelegate.horizontalWordJump = false
@@ -300,7 +300,7 @@ struct ContentView: View {
                             
                             Divider()
                             
-                            // 垂直移动设置
+                            // Vertical movement settings
                             VStack(alignment: .leading, spacing: 12) {
                                 HStack {
                                     Text("Vertical Movement".localized)
@@ -336,12 +336,12 @@ struct ContentView: View {
                                     
                                     Spacer()
                                     
-                                    // 垂直移动增强选项
+                                    // Vertical movement enhancement options
                                     HStack(spacing: 12) {
                                         Toggle("Column Start/End".localized, isOn: $verticalBeginEnd)
                                             .onChange(of: verticalBeginEnd) { _, newValue in
                                                 if newValue {
-                                                    // 互斥选择：关闭其他选项
+                                                    // Mutually exclusive selection: turn off other options
                                                     verticalShift = false
                                                     AppDelegate.verticalShift = false
                                                 }
@@ -351,7 +351,7 @@ struct ContentView: View {
                                         Toggle("Select".localized, isOn: $verticalShift)
                                             .onChange(of: verticalShift) { _, newValue in
                                                 if newValue {
-                                                    // 互斥选择：关闭其他选项
+                                                    // Mutually exclusive selection: turn off other options
                                                     verticalBeginEnd = false
                                                     AppDelegate.verticalBeginEnd = false
                                                 }
@@ -363,7 +363,7 @@ struct ContentView: View {
                         }
                         .padding(.horizontal, 24)
                         
-                        // 应用特定控制
+                        // App specific control
                         VStack(alignment: .leading, spacing: 12) {
                             Text("App Specific Control".localized)
                                 .font(.headline)
@@ -416,7 +416,7 @@ struct ContentView: View {
                         }
                         .padding(.horizontal, 24)
                         
-                        // 测试区域
+                        // Test area
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Test Area".localized)
                                 .font(.headline)
@@ -436,7 +436,7 @@ struct ContentView: View {
                         }
                         .padding(.horizontal, 24)
                         
-                        // 使用说明
+                        // Instructions
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Instructions".localized)
                                 .font(.headline)
@@ -457,13 +457,13 @@ struct ContentView: View {
             }
             .frame(width: 550, height: 750)
             .onAppear {
-                // 定时同步全局修饰键状态
+                // Periodically sync global modifier key status
                 Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
                     isCmdPressed = AppDelegate.isCmdPressed
                     isOptPressed = AppDelegate.isOptPressed
                     isShiftPressed = AppDelegate.isShiftPressed
                 }
-                // 获取所有已安装应用
+                // Get all installed applications
                 let appDirs = ["/Applications", "/System/Applications", NSHomeDirectory() + "/Applications"]
                 var allApps: Set<String> = []
                 var nameToPath: [String: String] = [:]
@@ -485,7 +485,7 @@ struct ContentView: View {
                 }
                 allInstalledApps = Array(allApps).sorted()
                 appNameToPath = nameToPath
-                // 同步应用特定控制状态
+                // Sync app specific control status
                 enableAppSpecificControl = AppDelegate.enableAppSpecificControl
                 enabledApps = AppDelegate.enabledApps
             }
@@ -493,7 +493,7 @@ struct ContentView: View {
                 appDelegate.checkAccessibilityPermission()
             }
             .onReceive(NotificationCenter.default.publisher(for: .languageChanged)) { _ in
-                // 语言改变时，根据当前语言重新加载测试区域的文本
+                // When language changes, reload test area text based on current language
                 if localizationManager.currentLanguage == "zh" {
                     text = """
                     欢迎使用 HappyCursor 全局光标控制器！

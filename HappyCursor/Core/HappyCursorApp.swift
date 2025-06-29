@@ -16,7 +16,7 @@ struct HappyCursorApp: App {
     @State private var didOpenSettings = false
     
     var body: some Scene {
-        // 状态栏菜单
+        // Status bar menu
         MenuBarExtra(isInserted: $showMenuBar) {
             StatusBarMenuView()
                 .environmentObject(appDelegate)
@@ -44,7 +44,7 @@ struct HappyCursorApp: App {
         }
         .menuBarExtraStyle(.menu)
         
-        // 设置界面
+        // Settings interface
         Settings {
             ContentView()
                 .environmentObject(appDelegate)
